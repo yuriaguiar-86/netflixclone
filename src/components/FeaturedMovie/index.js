@@ -32,7 +32,7 @@ export default ({item}) => {
                         <a href="#" className="featured-my-list">+ Minha Lista</a>
                     </div>
                     <div className="featured-genres">
-                        <strong>Gêneros</strong> {genres.join(', ')}
+                        <strong>Gêneros:</strong> {genres.join(', ')}
                     </div>
                 </div>
             </div>
