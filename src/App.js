@@ -15,7 +15,7 @@ export default () => {
 
     useEffect(() => {
         const loadAll = async () => {
-            // Captura a lsita total
+            // Captura a lista total
             let list = await Tmdb.getHomeList();
             setMovieList(list);
 
@@ -32,12 +32,9 @@ export default () => {
     }, []);
 
     useEffect(() => {
+        //Oculta a apresenta a className black no header
         const scrollListener = () => {
-            if(window.scrollY > 10){
-                setBlackHeader(true);
-            }else{
-                setBlackHeader(false);
-            }
+            window.scrollY > 10 ? setBlackHeader(true) : setBlackHeader(false)   
         }
 
         window.addEventListener('scroll', scrollListener);
@@ -63,6 +60,12 @@ export default () => {
                 Desenvolvido por <b>Yuri Aguiar</b>
                 <br/>Direitos de imagem Netflix
             </footer>
+            
+            {movieList.length <= 0 &&
+                <div className="loading">
+                    <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" alt="Carregando" />
+                </div>
+            }
         </div>
     );
 }
